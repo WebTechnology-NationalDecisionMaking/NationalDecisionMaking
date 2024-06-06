@@ -32,11 +32,7 @@ const LoginChecker = observer(() => {
       // get current pathname
       const { pathname } = window.location;
 
-      if (!pathname.startsWith('/editor') && !pathname.startsWith('/kiosk')) {
-        router.push('/editor/calendar');
-      }
-    } else if (authenticationStatus === AuthenticationStatus.None) {
-      router.push('/login');
+      router.push('/');
     }
   }, [router, authenticationStatus]);
 
