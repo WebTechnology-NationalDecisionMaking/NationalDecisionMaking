@@ -40,6 +40,11 @@ const config: Config = {
         "text-gray-light": "#757575",
         "border-gray-light": "#F3F3F3",
       },
+      height: {
+        '128': '32rem',  // 512px
+        '144': '36rem',  // 576px
+        '160': '40rem'   // 640px
+      }
     },
   },
   plugins: [],
