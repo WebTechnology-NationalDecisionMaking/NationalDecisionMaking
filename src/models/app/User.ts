@@ -5,4 +5,7 @@ export interface User {
   createdAt: Date;
   image: string | null;
   updatedAt: Date;
+  age: number;
+  incomeRange: number;
+  gender: 'male' | 'female';
 }

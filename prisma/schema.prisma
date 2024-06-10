@@ -17,9 +17,27 @@ datasource db {
 model User {
   id                 String             @id @default(cuid())
   email              String             @unique
-  name               String             @db.VarChar(20) /// this is nickname
+  name               String             @db.VarChar(20)
   password           String
   createdAt          DateTime           @default(now())
   image              String?
   updatedAt          DateTime           @updatedAt
+  age                Int
+  gender             String
+  incomeRange        Int
+
+  submissions        Submit[]
+}
+
+model Submit {
+  id                 String             @id @default(cuid())
+  userId             String
+  user               User               @relation(fields: [userId], references: [id])
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+  sectionId          String
+  questionId         String
+  value              Int
+
+  @@unique([userId, sectionId, questionId])
 }

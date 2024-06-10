@@ -100,15 +100,8 @@ class AuthenticationStore {
     }
 
     try {
-      // const user = await getUser(); // TODO
-      const user: User = {
-        id: '1',
-        email: 'example@example.com',
-        name: 'John Doe',
-        createdAt: new Date(),
-        image: null,
-        updatedAt: new Date(),
-      };
+      const user = await getUser();
+
       runInAction(() => {
         this._user = user;
         this._status = AuthenticationStatus.Authenticated;

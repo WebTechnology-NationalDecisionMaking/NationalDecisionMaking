@@ -30,9 +30,7 @@ const LoginChecker = observer(() => {
 
     if (authenticationStatus === AuthenticationStatus.Authenticated) {
       // get current pathname
-      const { pathname } = window.location;
-
-      router.push('/');
+      router.push('/section');
     }
   }, [router, authenticationStatus]);
 

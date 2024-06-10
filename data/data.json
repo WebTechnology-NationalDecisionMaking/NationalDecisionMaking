@@ -1,0 +1,56 @@
+{
+  "sections": [
+    {
+      "id": "sec1",
+      "title": "Privacy Policy",
+      "description": "Details about how we handle your privacy.",
+      "legalContent": "This privacy policy explains how we collect, use, and protect your personal data. <q1> Do you agree with our data collection methods? <q2> For how long should we retain your data?",
+      "questions": [
+        {
+          "id": "q1",
+          "title": "Data Collection",
+          "description": "Do you agree with our data collection methods?",
+          "type": "select",
+          "selectionList": ["Agree", "Disagree"],
+          "defaultSelection": "Agree",
+          "defaultValue": 0
+        },
+        {
+          "id": "q2",
+          "title": "Data Retention",
+          "description": "For how long should we retain your data?",
+          "type": "value",
+          "selectionList": [],
+          "defaultSelection": "",
+          "defaultValue": 365
+        }
+      ]
+    },
+    {
+      "id": "sec2",
+      "title": "Terms of Service",
+      "description": "Details about the terms you agree to when using our service.",
+      "legalContent": "These terms govern your use of our service. <q3> Do you accept the terms of our service agreement? <q4> How many days of inactivity before your account is terminated?",
+      "questions": [
+        {
+          "id": "q3",
+          "title": "Service Agreement",
+          "description": "Do you accept the terms of our service agreement?",
+          "type": "select",
+          "selectionList": ["Accept", "Decline"],
+          "defaultSelection": "Accept",
+          "defaultValue": 0
+        },
+        {
+          "id": "q4",
+          "title": "Account Termination",
+          "description": "How many days of inactivity before your account is terminated?",
+          "type": "value",
+          "selectionList": [],
+          "defaultSelection": "",
+          "defaultValue": 30
+        }
+      ]
+    }
+  ]
+}

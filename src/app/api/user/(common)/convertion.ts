@@ -9,11 +9,15 @@ export function rawToUserDTO<
     createdAt: Date;
     image: string | null;
     updatedAt: Date;
+    age: number;
+    gender: string;
+    incomeRange: number;
   },
 >(raw: T): UserDTO {
   return {
     ...raw,
     createdAt: raw.createdAt.toISOString(),
     updatedAt: raw.updatedAt.toISOString(),
+    gender: raw.gender === 'male' ? 'male' : 'female',
   } satisfies UserDTO;
 }

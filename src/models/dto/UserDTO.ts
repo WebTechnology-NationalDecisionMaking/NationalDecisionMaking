@@ -2,6 +2,9 @@ export interface RegisterDTO {
   email: string;
   password: string;
   name: string;
+  age: number;
+  gender: 'male' | 'female';
+  incomeRange: number;
 }
 
 export interface UserDTO {
@@ -11,4 +14,7 @@ export interface UserDTO {
   createdAt: string;
   image: string | null;
   updatedAt: string;
+  age: number;
+  gender: 'male' | 'female';
+  incomeRange: number;
 }

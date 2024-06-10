@@ -6,13 +6,19 @@ import prisma from '@/config/prisma';
 export async function createUser(
   email: string,
   password: string,
-  name: string
+  name: string,
+  age: number,
+  gender: 'male' | 'female',
+  incomeRange: number
 ) {
   return prisma.user.create({
     data: {
       email,
       name,
       password: sha256(password).toString(),
+      age,
+      gender,
+      incomeRange,
     },
   });
 }

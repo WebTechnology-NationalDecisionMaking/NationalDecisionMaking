@@ -1,6 +1,6 @@
 import api from '@/config/api';
 import { User } from '@/models/app/User';
-import { UserDTO } from '@/models/dto/UserDTO';
+import { RegisterDTO, UserDTO } from '@/models/dto/UserDTO';
 
 export async function getUser(): Promise<User> {
   const result = (
@@ -15,14 +15,20 @@ export async function getUser(): Promise<User> {
 export async function register(
   email: string,
   password: string,
-  name: string
+  name: string,
+  age: number,
+  gender: 'male' | 'female',
+  incomeRange: number
 ): Promise<User> {
   const result = (
     await api.post('/api/user/register', {
       email,
       password,
       name,
-    })
+      age,
+      gender,
+      incomeRange,
+    } satisfies RegisterDTO)
   ).data as UserDTO;
 
   return dtoToUser(result);

@@ -18,7 +18,14 @@ export async function POST(request: Request) {
 
   // new user
   try {
-    const user = await createUser(req.email, req.password, req.name);
+    const user = await createUser(
+      req.email,
+      req.password,
+      req.name,
+      req.age,
+      req.gender === 'male' ? 'male' : 'female',
+      req.incomeRange
+    );
     return NextResponse.json({
       ...rawToUserDTO(user),
     } satisfies UserDTO);
