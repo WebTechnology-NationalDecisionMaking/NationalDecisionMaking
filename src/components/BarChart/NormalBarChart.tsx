@@ -1,4 +1,14 @@
-import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {
+  BarChart,
+  Bar,
+  Rectangle,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from 'recharts';
 
 interface DataItem {
   name: string;
@@ -6,18 +16,18 @@ interface DataItem {
 }
 
 const data: DataItem[] = [
-  { name: 'Option A', person: 10},
-  { name: 'Option B', person: 52},
-  { name: 'Option C', person: 42},
-  { name: 'Option D', person: 23},
-  { name: 'Option E', person: 12},
-  { name: 'Option F', person: 46},
-  { name: 'Option G', person: 34},
+  { name: 'Option A', person: 10 },
+  { name: 'Option B', person: 52 },
+  { name: 'Option C', person: 42 },
+  { name: 'Option D', person: 23 },
+  { name: 'Option E', person: 12 },
+  { name: 'Option F', person: 46 },
+  { name: 'Option G', person: 34 },
 ];
 
 const NormalBarChart: React.FC = () => {
   return (
-    <ResponsiveContainer width="100%" height="100%">
+    <ResponsiveContainer width='100%' height='100%'>
       <BarChart
         width={500}
         height={300}
@@ -29,15 +39,15 @@ const NormalBarChart: React.FC = () => {
           bottom: 5,
         }}
       >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
+        <CartesianGrid strokeDasharray='3 3' />
+        <XAxis dataKey='name' />
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey="person" fill="#8884d8"/>
+        <Bar dataKey='person' fill='#8884d8' />
       </BarChart>
     </ResponsiveContainer>
   );
-}
+};
 
 export default NormalBarChart;

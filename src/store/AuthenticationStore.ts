@@ -75,7 +75,9 @@ class AuthenticationStore {
       this._status = AuthenticationStatus.Authenticating;
     });
 
-    await signOut();
+    await signOut({
+      redirect: false,
+    });
 
     runInAction(() => {
       this._user = null;

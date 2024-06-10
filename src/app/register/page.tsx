@@ -1,4 +1,6 @@
-import { useRouter } from 'next/router';
+'use client';
+
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Header from '../../components/Header';
 import { register } from '%/src/services/app/user/UserService';

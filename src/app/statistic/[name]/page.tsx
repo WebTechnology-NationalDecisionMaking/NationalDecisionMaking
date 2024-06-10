@@ -1,7 +1,6 @@
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+'use client';
 
-import Header from '../../components/Header';
+import Header from '%/src/components/Header';
 import NormalBarChart from '%/src/components/BarChart/NormalBarChart';
 import GenderBarChart from '%/src/components/BarChart/GenderBarChart';
 
@@ -19,10 +18,16 @@ interface Question {
   statistic: string;
 }
 
-
-export default function StatisticPage() {
+export default function StatisticPage({
+  params,
+}: {
+  params: {
+    name: string;
+  };
+}) {
+  const { name } = params;
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className='min-h-screen bg-gray-100'>
       <Header />
       <h1>title</h1>
       <p>description</p>
@@ -38,10 +43,10 @@ export default function StatisticPage() {
         </div>
       </div>
       Data Visulation
-      <div className="w-2/3 h-128 p-5">
+      <div className='w-2/3 h-128 p-5'>
         <NormalBarChart />
       </div>
-      <div className="w-2/3 h-128 p-5">
+      <div className='w-2/3 h-128 p-5'>
         <GenderBarChart />
       </div>
     </div>

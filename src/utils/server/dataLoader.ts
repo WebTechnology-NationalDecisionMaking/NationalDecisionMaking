@@ -3,7 +3,7 @@ import { Section } from '../../models/section';
 import fs from 'fs';
 import path from 'path';
 
-const dataFilePath = path.join(process.cwd(), 'data.json');
+const dataFilePath = path.join(process.cwd(), 'data/data.json');
 
 let data: Section[] | null = null;
 
