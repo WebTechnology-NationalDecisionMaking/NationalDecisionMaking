@@ -10,22 +10,21 @@ import {
 } from 'recharts';
 
 interface DataItem {
-  name: string;
-  male: number;
-  female: number;
+  age: string;
+  person: number;
 }
 
 const data: DataItem[] = [
-  { name: 'Option A', male: 7, female: 3 },
-  { name: 'Option B', male: 30, female: 22 },
-  { name: 'Option C', male: 10, female: 32 },
-  { name: 'Option D', male: 12, female: 11 },
-  { name: 'Option E', male: 2, female: 10 },
-  { name: 'Option F', male: 36, female: 10 },
-  { name: 'Option G', male: 20, female: 14 },
+  { age: '0-10', person: 12 },
+  { age: '10-20', person: 44 },
+  { age: '20-30', person: 23 },
+  { age: '30-40', person: 37 },
+  { age: '40-50', person: 10 },
+  { age: '50-60', person: 25 },
+  { age: '60-70', person: 31 },
 ];
 
-const GenderBarChart: React.FC = () => {
+const AgeBarChart: React.FC = () => {
   return (
     <ResponsiveContainer width='100%' height='100%'>
       <BarChart
@@ -40,15 +39,14 @@ const GenderBarChart: React.FC = () => {
         }}
       >
         <CartesianGrid strokeDasharray='3 3' />
-        <XAxis dataKey='name' />
+        <XAxis dataKey='age' />
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey='male' fill='#5e99d8' />
-        <Bar dataKey='female' fill='#d85e5e' />
+        <Bar dataKey='person' fill='#8BC34A' />
       </BarChart>
     </ResponsiveContainer>
   );
 };
 
-export default GenderBarChart;
+export default AgeBarChart;

@@ -29,7 +29,7 @@ export default async function SectionPage({
           />
         </div>
         <div className='md:col-span-2'>
-          <QuestionList questions={section.questions} />
+          <QuestionList questions={section.questions} id={id} />
         </div>
       </main>
     </div>

@@ -1,10 +1,13 @@
+import Link from 'next/link';
+
 import { Question } from '../models/section';
 
 interface QuestionListProps {
   questions: Question[];
+  id: string;
 }
 
-const QuestionList: React.FC<QuestionListProps> = ({ questions }) => {
+const QuestionList: React.FC<QuestionListProps> = ({ questions, id }) => {
   return (
     <div className='bg-white rounded-lg shadow-md p-6'>
       <ul className='space-y-6'>
@@ -32,9 +35,11 @@ const QuestionList: React.FC<QuestionListProps> = ({ questions }) => {
           </li>
         ))}
       </ul>
-      <button className='bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold px-4 py-2 rounded mt-6 w-full hover:from-blue-600 hover:to-indigo-700 transition duration-300'>
-        Submit
-      </button>
+      <Link href={`/statistic/${id}`}>
+        <button className='bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold px-4 py-2 rounded mt-6 w-full hover:from-blue-600 hover:to-indigo-700 transition duration-300'>
+          Submit
+        </button>
+      </Link>
     </div>
   );
 };
