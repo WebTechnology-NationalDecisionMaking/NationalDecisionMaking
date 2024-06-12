@@ -4,8 +4,9 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Header from '../../components/Header';
 import { authenticationStore } from '%/src/store/AuthenticationStore';
+import { observer } from 'mobx-react-lite';
 
-export default function LoginPage() {
+function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -68,8 +69,13 @@ export default function LoginPage() {
               </button>
             </Link>
           </div>
+          {authenticationStore.loginFailed && (
+            <div className='text-red-600'>Login failed</div>
+          )}
         </div>
       </main>
     </div>
   );
 }
+
+export default observer(LoginPage);
