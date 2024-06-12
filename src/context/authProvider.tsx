@@ -16,7 +16,6 @@ export const useAuthenticationStore = (): AuthenticationStore =>
 
 const LoginChecker = observer(() => {
   const router = useRouter();
-
   const authenticationStatus = authenticationStore.status;
 
   useEffect(() => {
@@ -28,8 +27,18 @@ const LoginChecker = observer(() => {
       return;
     if (authenticationStore.isFirstTime) return;
 
+    const url = new URL(window.location.href);
+    const pathname = url.pathname;
+
     if (authenticationStatus === AuthenticationStatus.Authenticated) {
       // get current pathname
+      router.push('/section');
+    } else if (
+      authenticationStatus === AuthenticationStatus.None &&
+      pathname !== '/login' &&
+      pathname !== '/register' &&
+      pathname !== '/section'
+    ) {
       router.push('/section');
     }
   }, [router, authenticationStatus]);

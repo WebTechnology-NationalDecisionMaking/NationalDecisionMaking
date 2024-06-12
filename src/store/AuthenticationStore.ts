@@ -2,6 +2,7 @@ import { signIn, signOut } from 'next-auth/react';
 import { makeAutoObservable, observable, runInAction } from 'mobx';
 import { User } from '@/models/app/User';
 import { getUser } from '@/services/app/user/UserService';
+import { globalLoadingStore } from './GlobalLoadingStore';
 
 export enum AuthenticationStatus {
   None,
@@ -28,63 +29,73 @@ class AuthenticationStore {
   }
 
   async login(email: string, password: string) {
-    runInAction(() => {
-      this._status = AuthenticationStatus.Authenticating;
-    });
-
-    const result = await signIn('credentials', {
-      redirect: false,
-      email,
-      password,
-    });
-
-    if (!result) {
-      runInAction(() => {
-        this._loginFailed = true;
-        this._status = AuthenticationStatus.None;
-      });
-      return;
-    }
-
-    if (!result.ok) {
-      runInAction(() => {
-        this._loginFailed = true;
-        this._status = AuthenticationStatus.None;
-      });
-      return;
-    }
-
     try {
-      const user = await getUser();
       runInAction(() => {
-        this._user = user;
-        this._status = AuthenticationStatus.Authenticated;
+        this._status = AuthenticationStatus.Authenticating;
+        globalLoadingStore.startLoading(true, 'Logging in...');
       });
-      localStorage.setItem('user', JSON.stringify(user));
-    } catch (e) {
-      runInAction(() => {
-        this._loginFailed = true;
-        this._status = AuthenticationStatus.None;
+
+      const result = await signIn('credentials', {
+        redirect: false,
+        email,
+        password,
       });
-      localStorage.removeItem('user');
+
+      if (!result) {
+        runInAction(() => {
+          this._loginFailed = true;
+          this._status = AuthenticationStatus.None;
+        });
+        return;
+      }
+
+      if (!result.ok) {
+        runInAction(() => {
+          this._loginFailed = true;
+          this._status = AuthenticationStatus.None;
+        });
+        return;
+      }
+
+      try {
+        const user = await getUser();
+        runInAction(() => {
+          this._user = user;
+          this._status = AuthenticationStatus.Authenticated;
+        });
+        localStorage.setItem('user', JSON.stringify(user));
+      } catch (e) {
+        runInAction(() => {
+          this._loginFailed = true;
+          this._status = AuthenticationStatus.None;
+        });
+        localStorage.removeItem('user');
+      }
+    } finally {
+      globalLoadingStore.stopLoading();
     }
   }
 
   async logout() {
-    runInAction(() => {
-      this._status = AuthenticationStatus.Authenticating;
-    });
+    try {
+      runInAction(() => {
+        this._status = AuthenticationStatus.Authenticating;
+        globalLoadingStore.startLoading(true, 'Logging out...');
+      });
 
-    await signOut({
-      redirect: false,
-    });
+      await signOut({
+        redirect: false,
+      });
 
-    runInAction(() => {
-      this._user = null;
-      this._status = AuthenticationStatus.None;
-    });
+      runInAction(() => {
+        this._user = null;
+        this._status = AuthenticationStatus.None;
+      });
 
-    localStorage.removeItem('user');
+      localStorage.removeItem('user');
+    } finally {
+      globalLoadingStore.stopLoading();
+    }
   }
 
   async checkAuthenticationOnStart() {
