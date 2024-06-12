@@ -80,7 +80,7 @@ const QuestionItem = observer(({ question }: { question: Question }) => {
       {question.type === 'value' && (
         <div className='mb-2'>
           <input
-            type='text'
+            type='number'
             className='border p-2 w-full rounded'
             placeholder='Enter your value here'
             defaultValue={question.defaultValue}
