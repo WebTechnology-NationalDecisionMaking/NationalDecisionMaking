@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import Header from '%/src/components/Header';
 import SectionContent from '%/src/components/SectionContent';
 import QuestionList from '%/src/components/QuestionList';
