@@ -7,6 +7,9 @@ import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.share
 export class SectionStore {
   questionRefs: Record<string, RefObject<HTMLElement>> = {};
   section: Section;
+  highlightedQuestionId: {
+    id: string;
+  } | null = null;
 
   constructor(section: Section) {
     this.section = section;
@@ -22,6 +25,9 @@ export class SectionStore {
   }
 
   scrollToQuestion(questionId: string) {
+    this.highlightedQuestionId = {
+      id: questionId,
+    };
     const ref = this.questionRefs[questionId];
 
     if (ref.current) {

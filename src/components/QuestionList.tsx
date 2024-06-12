@@ -1,26 +1,63 @@
 'use client';
 
-import Link from 'next/link';
 import { useSectionStore } from '../context/sectionProvider';
 import { Question } from '../models/section';
 import { useEffect, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useRouter } from 'next/navigation';
+import styled, { keyframes, css } from 'styled-components';
 
-function QuestionItem({ question }: { question: Question }) {
+const highlightAnimation = keyframes`
+  50% {
+    background-color: #3c82f666;
+    scale: 1.01;
+    box-shadow: 0 0 0 0.5rem rgba(60, 130, 246, 0.25);
+  }
+  100% {
+    background-color: white;
+    scale: 1;
+    box-shadow: none;
+  }
+`;
+
+const ListItem = styled.li<{ isHighlighted: boolean }>`
+  padding: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s;
+
+  ${(props) =>
+    props.isHighlighted &&
+    css`
+      animation: ${highlightAnimation} 1s ease-in-out;
+    `}
+
+  &:hover {
+    background-color: #f9fafb;
+  }
+`;
+
+const QuestionItem = observer(({ question }: { question: Question }) => {
   const store = useSectionStore();
   const Ref = useRef<HTMLLIElement>(null);
+  const RenderKeyRef = useRef(0);
 
   useEffect(
     () => store.registerQuestionRef(question.id, Ref),
     [question.id, store]
   );
 
+  const isHighlightTriggered = store.highlightedQuestionId?.id === question.id;
+
+  if (isHighlightTriggered) {
+    RenderKeyRef.current += 1;
+  }
+
   return (
-    <li
-      key={question.id}
+    <ListItem
       ref={Ref}
-      className='p-4 border rounded-lg hover:bg-gray-50 transition duration-300'
+      isHighlighted={isHighlightTriggered}
+      key={`${RenderKeyRef.current}-{question.id}`}
     >
       <h3 className='text-xl font-semibold'>{question.title}</h3>
       <p className='mb-2 text-600'>{question.description}</p>
@@ -49,9 +86,9 @@ function QuestionItem({ question }: { question: Question }) {
           />
         </div>
       )}
-    </li>
+    </ListItem>
   );
-}
+});
 
 function QuestionList() {
   const store = useSectionStore();
