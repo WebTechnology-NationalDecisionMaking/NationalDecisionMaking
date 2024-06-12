@@ -16,23 +16,23 @@ export const useAuthenticationStore = (): AuthenticationStore =>
 
 const LoginChecker = observer(() => {
   const router = useRouter();
+  const isFirstTime = authenticationStore.isFirstTime;
   const authenticationStatus = authenticationStore.status;
-
-  useEffect(() => {
-    authenticationStore.checkAuthenticationOnStart();
-  }, [router]);
 
   useEffect(() => {
     if (authenticationStore.status === AuthenticationStatus.Authenticating)
       return;
-    if (authenticationStore.isFirstTime) return;
+
+    if (isFirstTime) return;
 
     const url = new URL(window.location.href);
     const pathname = url.pathname;
 
     if (authenticationStatus === AuthenticationStatus.Authenticated) {
       // get current pathname
-      router.push('/section');
+      if (pathname === '/login' || pathname === '/register') {
+        router.push('/section');
+      }
     } else if (
       authenticationStatus === AuthenticationStatus.None &&
       pathname !== '/login' &&
@@ -41,7 +41,11 @@ const LoginChecker = observer(() => {
     ) {
       router.push('/section');
     }
-  }, [router, authenticationStatus]);
+  }, [isFirstTime, router, authenticationStatus]);
+
+  useEffect(() => {
+    authenticationStore.checkAuthenticationOnStart();
+  }, []);
 
   return null;
 });

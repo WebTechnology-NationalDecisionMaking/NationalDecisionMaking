@@ -22,9 +22,13 @@ class AuthenticationStore {
   constructor() {
     this._status = AuthenticationStatus.None;
 
-    makeAutoObservable<AuthenticationStore, '_user' | '_loginFailed'>(this, {
+    makeAutoObservable<
+      AuthenticationStore,
+      '_user' | '_loginFailed' | '_isFirstTime'
+    >(this, {
       _user: observable,
       _loginFailed: observable,
+      _isFirstTime: observable,
     });
   }
 
@@ -109,6 +113,7 @@ class AuthenticationStore {
     if (cachedUser) {
       runInAction(() => {
         this._user = JSON.parse(cachedUser);
+        this._status = AuthenticationStatus.Authenticated;
       });
     }
 
