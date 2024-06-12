@@ -42,12 +42,13 @@ const QuestionItem = observer(({ question }: { question: Question }) => {
   const Ref = useRef<HTMLLIElement>(null);
   const RenderKeyRef = useRef(0);
 
+  const isHighlightTriggered = store.highlightedQuestionId?.id === question.id;
+  const renderKey = RenderKeyRef.current;
+
   useEffect(
     () => store.registerQuestionRef(question.id, Ref),
-    [question.id, store]
+    [question.id, store, renderKey]
   );
-
-  const isHighlightTriggered = store.highlightedQuestionId?.id === question.id;
 
   if (isHighlightTriggered) {
     RenderKeyRef.current += 1;
@@ -57,7 +58,7 @@ const QuestionItem = observer(({ question }: { question: Question }) => {
     <ListItem
       ref={Ref}
       isHighlighted={isHighlightTriggered}
-      key={`${RenderKeyRef.current}-{question.id}`}
+      key={`${renderKey}-{question.id}`}
     >
       <h3 className='text-xl font-semibold'>{question.title}</h3>
       <p className='mb-2 text-600'>{question.description}</p>
