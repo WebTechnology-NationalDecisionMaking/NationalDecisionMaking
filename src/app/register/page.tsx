@@ -124,24 +124,24 @@ export default function RegisterPage() {
             <div>
               <label className='block font-medium text-gray-700'>Gender</label>
               <div className='flex items-center'>
-                <div className='flex items-center mr-4 mt-1 px-3 py-2 bg-white border border-gray-300 rounded-2xl shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600'>
+                <label className='flex items-center mr-4 mt-1 px-3 py-2 bg-white border border-gray-300 rounded-2xl shadow-sm hover:bg-gray-100 active:bg-gray-200 focus:outline-none focus:ring-blue-600 focus:border-blue-600'>
                   <input
                     type='radio'
                     name='gender'
                     value='male'
                     onChange={(e) => setGender(e.target.value)}
                   />
-                  Male
-                </div>
-                <div className='flex items-center mr-4 mt-1 px-3 py-2 bg-white border border-gray-300 rounded-2xl shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600'>
+                  <span className='ml-2'>Male</span>
+                </label>
+                <label className='flex items-center mr-4 mt-1 px-3 py-2 bg-white border border-gray-300 rounded-2xl shadow-sm hover:bg-gray-100 active:bg-gray-200 focus:outline-none focus:ring-blue-600 focus:border-blue-600'>
                   <input
                     type='radio'
                     name='gender'
                     value='female'
                     onChange={(e) => setGender(e.target.value)}
                   />
-                  Female
-                </div>
+                  <span className='ml-2'>Female</span>
+                </label>
               </div>
             </div>
             <div>
@@ -149,39 +149,40 @@ export default function RegisterPage() {
                 Income Range
               </label>
               <div className='flex flex-col space-y-2'>
-                <div className='flex items-center mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-2xl shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600'>
-                  <input
-                    type='radio'
-                    name='income'
-                    value='1'
-                    onChange={(e) => setIncomeRange(e.target.value)}
-                  />
-                  Range 1 start value - Range 1 end value
-                </div>
-                <div className='flex items-center mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-2xl shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600'>
-                  <input
-                    type='radio'
-                    name='income'
-                    value='2'
-                    onChange={(e) => setIncomeRange(e.target.value)}
-                  />
-                  Range 2 start value - Range 2 end value
-                </div>
-                <div className='flex items-center mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-2xl shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600'>
-                  <input
-                    type='radio'
-                    name='income'
-                    value='3'
-                    onChange={(e) => setIncomeRange(e.target.value)}
-                  />
-                  Range 3 start value - Range 3 end value
-                </div>
+                {[
+                  '0-30000',
+                  '30001-60000',
+                  '60001-100000',
+                  '100001-150000',
+                  '150001-200000',
+                  '200001-300000',
+                  '300001-500000',
+                  '500001-1000000',
+                  '1000001+',
+                ].map((range) => (
+                  <label
+                    key={range}
+                    className='flex items-center mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-2xl shadow-sm hover:bg-gray-100 active:bg-gray-200 focus:outline-none focus:ring-blue-600 focus:border-blue-600'
+                  >
+                    <input
+                      type='radio'
+                      name='income'
+                      value={range}
+                      onChange={(e) => setIncomeRange(e.target.value)}
+                    />
+                    <span className='ml-2'>
+                      {range === '1000001+'
+                        ? '$1,000,001 and above'
+                        : `$${range.replace('-', ' - $')}`}
+                    </span>
+                  </label>
+                ))}
               </div>
             </div>
           </form>
           <div>
             <button
-              className='px-3 py-1 rounded-lg bg-blue-600 text-white'
+              className='px-3 py-1 rounded-lg bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800'
               onClick={handleRegister}
             >
               Register
