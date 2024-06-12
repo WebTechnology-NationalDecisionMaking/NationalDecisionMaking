@@ -1,5 +1,4 @@
 import Link from 'next/link';
-
 import { Question } from '../models/section';
 
 interface QuestionListProps {
@@ -17,21 +16,27 @@ const QuestionList: React.FC<QuestionListProps> = ({ questions, id }) => {
             className='p-4 border rounded-lg hover:bg-gray-50 transition duration-300'
           >
             <h3 className='text-xl font-semibold'>{question.title}</h3>
-            <p className='mb-2 text-gray-600'>{question.description}</p>
-            <p className='text-gray-500 mb-2'>Type: {question.type}</p>
+            <p className='mb-2 text-600'>{question.description}</p>
             {question.type === 'select' && (
               <ul className='list-disc pl-5 mb-2'>
                 {question.selectionList.map((option, index) => (
-                  <li key={index}>{option}</li>
+                  <li key={index} className='flex items-center space-x-2'>
+                    <input type='radio' name={question.id} id={`${question.id}-${index}`} className='form-radio text-blue-600' />
+                    <label htmlFor={`${question.id}-${index}`}>{option}</label>
+                  </li>
                 ))}
               </ul>
             )}
-            <p className='text-gray-500'>
-              Default Selection: {question.defaultSelection}
-            </p>
-            <p className='text-gray-500'>
-              Default Value: {question.defaultValue}
-            </p>
+            {question.type === 'value' && (
+              <div className='mb-2'>
+                <input
+                  type='text'
+                  className='border p-2 w-full rounded'
+                  placeholder='Enter your value here'
+                  defaultValue={question.defaultValue}
+                />
+              </div>
+            )}
           </li>
         ))}
       </ul>
