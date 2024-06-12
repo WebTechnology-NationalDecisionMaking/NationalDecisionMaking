@@ -115,6 +115,121 @@
           "defaultValue": 24
         }
       ]
+    },
+    {
+      "id": "sec5",
+      "title": "Medical School Admission Expansion",
+      "description": "Survey on the Government's Plan to Increase Medical School Admissions in 2025",
+      "legalContent": " <q17> 2025 Academic Year <q16> Medical School Quota Allocation Results: Of the total increase of <q18> 2000 students, 82% will be allocated to non-metropolitan areas and <q19> 18% to the metropolitan region, with no new quotas allocated to Seoul... To reduce the regional medical disparity.\n- National universities in regional hubs will be allocated around 200 students to foster regional hub hospitals.\n- Small medical schools with less than 50 students will increase their total capacity to 100-130 students for efficient operation.\n- To improve the quality of education, national universities will expand their full-time faculty, and private universities will receive increased loans for facility improvements.\n\nOn March 20th (Wednesday), Deputy Prime Minister and Minister of Education Lee Joo-ho announced the <q16> results of the allocation of medical school student quotas for the 2025 academic year at the Seoul government office.\n\nThe Ministry of Education received applications for quota increases from February 22 to March 4 and, in consultation with the Ministry of Health and Welfare, allocated the increased quotas of <q17> 2000 students for the 2025 academic year to regions and universities through the discussions of the 'Medical School Student Quota Allocation Committee' (hereinafter referred to as the Allocation Committee) composed of relevant experts.\n\nThis allocation of medical school quotas was based on three key allocation criteria to establish a regional complete medical system where all citizens can enjoy high-quality medical services anywhere. The three key allocation criteria are as follows:\n\nFirst, to address the medical disparity between metropolitan and non-metropolitan areas, about 80% of the quotas were primarily allocated to non-metropolitan areas, and within the metropolitan area, the quotas were concentrated in the Gyeongin region to overcome the imbalance and medical conditions between Seoul and the Gyeongin region.\n\n*① Number of doctors per 1,000 people (2023): Seoul 3.61 (OECD average 3.7) vs. Gyeonggi 1.80, Incheon 1.89\n\n ② Number of medical school quotas per 10,000 people (2023): Seoul about 0.9 vs. Gyeonggi about 0.1, Incheon 0.3\n\nSecond, to establish a new medical ecosystem that supports essential regional healthcare centered around regional responsibility medical institutions, the total capacity of national medical schools in regional hubs was secured to be around 200 students.\n\nThird, small medical schools with less than 50 students were allocated a total capacity of at least 100 students for efficient operation. Additionally, non-metropolitan medical schools' total capacity was expanded to 120-150 students to reflect regional education conditions and characteristics, aiming to improve local medical conditions. No new quotas were allocated to the Seoul area where medical conditions are already sufficient.\n\nAs a result of the allocation, 361 students, or <q18> 18% of the total increase of 2000, were newly allocated to universities in the metropolitan area, specifically the Gyeongin region, while 1639 students, or 82% of the total increase, were newly allocated to universities in non-metropolitan areas.\n\nThe Allocation Committee comprehensively reviewed the current medical education and training conditions of each university, their future plans, their past contributions to regional and essential healthcare, and their willingness to contribute in the future, based on the application materials submitted by each school, and determined the increased quotas within the scope that does not exceed the requested amount, the Ministry of Education stated.\n\nThe Ministry of Education, as a social deputy prime minister department, plans to actively support the improvement of medical education conditions following the increase in medical school quotas by closely cooperating with relevant ministries such as the Ministry of Health and Welfare, the Ministry of Strategy and Finance, and the Ministry of the Interior and Safety, to secure faculty, facilities, and equipment.\n\nDeputy Prime Minister and Minister of Education Lee Joo-ho mentioned, “This expansion of medical school quotas is the beginning of medical reform and an opportunity to create a new medical ecosystem that actively addresses the medical disparity between metropolitan and non-metropolitan areas.”\n\nHe further stated, “The Ministry of Education will work together with universities to solve the difficulties associated with the increase in medical school quotas, actively listen to the voices on the ground, and directly visit universities to communicate.”\n",
+      "questions": [
+        {
+          "id": "q16",
+          "title": "Q1",
+          "description": "Do you agree with the increase in medical school quotas?",
+          "type": "select",
+          "selectionList": ["Agree", "Disagree"],
+          "defaultSelection": "Agree",
+          "defaultValue": 0
+        },
+        {
+          "id": "q17",
+          "title": "Q2",
+          "description": "In which year do you think it is appropriate to implement the increase in medical school quotas?",
+          "type": "value",
+          "selectionList": [],
+          "defaultSelection": "",
+          "defaultValue": 2025
+        },
+        {
+          "id": "q18",
+          "title": "Q3",
+          "description": "What do you think is the appropriate increase in medical school quotas for the 2025 academic year?",
+          "type": "value",
+          "selectionList": [],
+          "defaultSelection": "",
+          "defaultValue": 2000
+        },
+        {
+          "id": "q19",
+          "title": "Q4",
+          "description": "It was decided to allocate 18% of the increased quotas to universities in the metropolitan area and 82% to universities in non-metropolitan areas. What percentage do you think is appropriate for universities in the metropolitan area?",
+          "type": "value",
+          "selectionList": [],
+          "defaultSelection": "",
+          "defaultValue": 18
+        }
+      ]
+    },
+    {
+      "id": "sec6",
+      "title": "Technical Research Personnel System",
+      "description": "Survey on the Technical Research Personnel System as a Form of Military Service",
+      "legalContent": "The alternative service system refers to a system in countries with conscription, where those eligible for active duty, who meet certain criteria, serve in key industries or other public interest roles, and are recognized as having fulfilled their military duty. In other words, they serve for the duration of their military service or longer, primarily in social welfare facilities as social welfare personnel, social public service personnel, or disaster relief personnel.\n\nIn South Korea, the alternative service system was introduced in the early 1970s. These individuals serve in various sectors, including public service personnel, industrial function personnel, mandatory firefighters, security guards, full-time reserve personnel, technical research personnel, public health doctors, international cooperation doctors, public legal officers, and conscription-exclusive doctors, thereby fulfilling their military service obligations in ways other than as combat troops. However, they must still undergo four weeks of military training and, after discharge, undergo prescribed reserve training courses as reserve combat personnel for eight years in preparation for emergencies, and must participate in a war if one occurs until the age of 45.\n\nAmong the alternative service systems, <q20> <q21> the technical research personnel system allows those eligible for active duty or supplementary service to be recognized as having completed their public service duty by engaging in academic and technical research for a certain period according to Article 37 of the Military Service Act.\nThe following are the salaries according to the service period of technical research personnel:\n(1st month ~ 4th month): 640,000 KRW\n(5th month ~ 16th month): 800,000 KRW\n(17th month ~ 28th month): 1,000,000 KRW\n(29th month ~ 36th month <q22>): 1,250,000 KRW\n\nThe following is part of Article 32 of the 'Management Regulations for Technical Research Personnel and Industrial Function Personnel':\n⑤ The daily working hours of research personnel and function personnel shall be based on 8 hours from the start time of work (specified time) according to company regulations or employment rules. However, if the start time of work is not specified in company regulations or employment rules, it shall be based on <q23> 9 AM for 8 hours. <Newly established on May 31, 2022, amended on May 31, 2023.>\n⑥ Doctoral course technical research personnel can implement flexible working hours of 40 hours per week, with a maximum daily service time of <q24> 12 hours, and the detailed operational matters such as attendance management should be established by the graduate school of natural sciences or the institute of science and technology. <Amended on August 6, 2013, October 29, 2014, November 30, 2016, November 30, 2021, May 31, 2022.>\n⑦ Research personnel and function personnel, excluding doctoral course technical research personnel, can implement flexible working hours of 40 hours per week, and in this case, it should be operated according to the following items. <Newly established on May 31, 2022.>\n1. Flexible working hours can be implemented only in companies designated for military service that have regulations for flexible working hours in their company regulations or employment rules, and have a system that can verify weekly service hours of 40 hours electronically.\n2. An application (change) form for flexible working hours according to Form No. 35 must be submitted and approved by the head of the designated company by the day before the start of flexible working hours, and if prior approval is not obtained, the working hours for that day shall follow paragraph 5.\n3. The total possible working hours in a day are from <q25> 6 AM to <q26> midnight.\n4. The daily working hours shall be at least 4 hours and no more than 12 hours. In this case, it must include at least 2 hours of joint working hours.",
+      "questions": [
+        {
+          "id": "q20",
+          "title": "Q1",
+          "description": "Do you agree with the technical research personnel system?",
+          "type": "select",
+          "selectionList": ["Agree", "Disagree"],
+          "defaultSelection": "Agree",
+          "defaultValue": 0
+        },
+        {
+          "id": "q21",
+          "title": "Q2",
+          "description": "Do you think the number of technical research personnel should be increased?",
+          "type": "select",
+          "selectionList": ["Agree", "Disagree"],
+          "defaultSelection": "Agree",
+          "defaultValue": 0
+        },
+        {
+          "id": "q22",
+          "title": "Q3",
+          "description": "Currently, technical research personnel have a mandatory service period of 36 months. What do you think is the appropriate service period in months?",
+          "type": "value",
+          "selectionList": [],
+          "defaultSelection": "",
+          "defaultValue": 36
+        },
+        {
+          "id": "q23",
+          "title": "Q4",
+          "description": "What do you think is the appropriate value for '9 AM' specified in paragraph 5 of Article 32?",
+          "type": "value",
+          "selectionList": [],
+          "defaultSelection": "",
+          "defaultValue": 9
+        },
+        {
+          "id": "q24",
+          "title": "Q5",
+          "description": "What do you think is the appropriate value for the maximum daily service time of '12 hours' specified in paragraph 6 of Article 32?",
+          "type": "value",
+          "selectionList": [],
+          "defaultSelection": "",
+          "defaultValue": 12
+        },
+        {
+          "id": "q25",
+          "title": "Q6",
+          "description": "What do you think is the appropriate value for the start time of possible working hours '6 AM' specified in item 3 of paragraph 7 of Article 32?",
+          "type": "value",
+          "selectionList": [],
+          "defaultSelection": "",
+          "defaultValue": 6
+        },
+        {
+          "id": "q26",
+          "title": "Q7",
+          "description": "What do you think is the appropriate value for the end time of possible working hours 'midnight' specified in item 3 of paragraph 7 of Article 32?",
+          "type": "value",
+          "selectionList": [],
+          "defaultSelection": "",
+          "defaultValue": 24
+        }
+      ]
     }
   ]
 }
